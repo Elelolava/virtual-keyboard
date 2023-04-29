@@ -41,6 +41,7 @@ p {
   border: 5px solid #306d21b2;
   outline: none;
   overflow-y: scroll;
+  cursor: default;
 }
 
 ::-webkit-scrollbar {
@@ -103,9 +104,11 @@ p {
   background: #9f2d2d;
 }
 
-.key:active {
+.key:active, 
+.key-active {
   color: #ffffff;
   border-radius: 25px;
+  background: #9f2d2d;
 }
 
 .hidden {
