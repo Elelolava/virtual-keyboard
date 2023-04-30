@@ -3,7 +3,7 @@ import { keys } from './keysArray.js';
 const body = document.querySelector('body');
 body.innerHTML = `
   <header class="header"><h1>Virtual Keyboard</h1></header>
-  <main>
+  <main class="main">
     <textarea class="textarea" rows="5" cols="100" placeholder="Enter your text"></textarea>
     <div class="container">
       <div class="row"></div>

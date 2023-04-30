@@ -56,6 +56,7 @@ keys.forEach(key => {
 
     } else if (keyText == 'CapsLock') {
     } else if (keyText == 'Enter') {
+      
     } else if (keyText == 'Shift') {
     } else if (keyText == 'Ctrl') {
     } else if (keyText == 'Alt') {
