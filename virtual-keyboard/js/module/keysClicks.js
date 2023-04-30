@@ -1,12 +1,10 @@
 const keys = document.querySelectorAll('.key');
 const textarea = document.querySelector('.textarea');
 
-
 const cursorPosition = (n) => {
   textarea.setRangeText(n, textarea.selectionStart, textarea.selectionEnd, "end");
   textarea.focus();
 };
-
 
 textarea.addEventListener('keydown', (e) => {
   let keyCode = e.code.toLowerCase();
@@ -60,10 +58,26 @@ keys.forEach(key => {
     } else if (keyText == 'Ctrl') {
     } else if (keyText == 'Alt') {
     } else if (keyText == 'Win') {
-    } else if (keyText == 'arrowLeft') {
-    } else if (keyText == 'arrowRight') {
-    } else if (keyText == 'arrowUp') {
-    } else if (keyText == 'arrowDown') {
+    } else if (keyText == '◄') {
+      textarea.selectionStart -= 1;
+      textarea.selectionEnd -= 1;
+
+    } else if (keyText == '►') {
+      textarea.selectionStart += 1;
+
+    } else if (keyText == '▲') {
+      let nextRowArray = Array.from([...textAreaContent].entries()).filter(i => i[1] == '\n').map(i => i[0]);
+      let newArr = [];
+      for (let i = 0; i < nextRowArray.length; i++) {
+        newArr.push(textarea.selectionStart - nextRowArray[i]);
+      }
+      let index = newArr.filter(item => item > 0).length - 1;
+      if (index !== -1) {
+        textarea.selectionEnd = nextRowArray[index];
+      }
+
+    } else if (keyText == '▼') {
+
     } else {
       cursorPosition(keyText);
       textAreaContent += keyText;
