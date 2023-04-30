@@ -1,7 +1,6 @@
 import { keys } from './keysArray.js';
 
 const body = document.querySelector('body');
-
 body.innerHTML = `
   <header class="header"><h1>Virtual Keyboard</h1></header>
   <main>
@@ -15,7 +14,7 @@ body.innerHTML = `
     </div>
     <div class="description">
       <p>Виртуальная клавиатура создана в ОС Windows</p>
-      <p>Для смены языка нажмите левые Ctrl+Alt</p>
+      <p>Для смены языка (en/ru) нажмите левые Alt+Shift</p>
     </div>
   </main>
 `;

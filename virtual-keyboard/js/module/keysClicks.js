@@ -2,13 +2,26 @@ const keys = document.querySelectorAll('.key');
 const textarea = document.querySelector('.textarea');
 
 
+const tabClicks = () => {
+  let textAreaContent = textarea.value;
+  let position = textarea.selectionStart;
+  textarea.value = textAreaContent.slice(0, position) + '\t' + textAreaContent.slice(position);
+};
+
+
 textarea.addEventListener('keydown', (e) => {
   let keyCode = e.code.toLowerCase();
+
   keys.forEach(key => {
     key.classList.remove('key-active');
     let keyClass = key.className.slice(4).toLowerCase();
-    if (keyCode == keyClass) {
+
+    if (keyCode == keyClass && keyCode !== 'tab') {
       key.classList.add('key-active');
+
+    } else if (keyCode == keyClass && keyCode == 'tab') {
+      e.preventDefault();
+      tabClicks();
     }
   });
   setTimeout(() => {
@@ -26,7 +39,10 @@ keys.forEach(key => {
     if (keyText == 'Backspace') {
       let textAreaCutContent = textAreaContent.slice(0, -1);
       textarea.value = textAreaCutContent;
+
     } else if (keyText == 'Tab') {
+      tabClicks();
+
     } else if (keyText == 'Del') {
     } else if (keyText == 'CapsLock') {
     } else if (keyText == 'Enter') {
