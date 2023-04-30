@@ -42,13 +42,17 @@ keys.forEach(key => {
         textAreaContent.slice(textarea.selectionStart-1, textarea.selectionEnd) : 
         textAreaContent.slice(textarea.selectionStart, textarea.selectionEnd);
       let textAreaCutContent = textAreaContent.replace(cutString, '');
-      console.log(textarea.selectionStart, textarea.selectionEnd, cutString, textAreaCutContent);
       textarea.value = textAreaCutContent;
 
     } else if (keyText == 'Tab') {
       tabClicks();
 
     } else if (keyText == 'Del') {
+      let cutString = textarea.selectionStart == textarea.selectionEnd ? 
+        textAreaContent.slice(textarea.selectionStart, textarea.selectionEnd+1) : 
+        textAreaContent.slice(textarea.selectionStart, textarea.selectionEnd);
+      let textAreaCutContent = textAreaContent.replace(cutString, '');
+      textarea.value = textAreaCutContent;
 
     } else if (keyText == 'CapsLock') {
     } else if (keyText == 'Enter') {
