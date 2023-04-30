@@ -7,10 +7,6 @@ const cursorPosition = (n) => {
   textarea.focus();
 };
 
-const tabClicks = () => {
-  let value = '\t';
-  cursorPosition(value);
-};
 
 textarea.addEventListener('keydown', (e) => {
   let keyCode = e.code.toLowerCase();
@@ -45,7 +41,8 @@ keys.forEach(key => {
       textarea.value = textAreaCutContent;
 
     } else if (keyText == 'Tab') {
-      tabClicks();
+      let value = '\t';
+      cursorPosition(value);
 
     } else if (keyText == 'Del') {
       let cutString = textarea.selectionStart == textarea.selectionEnd ? 
@@ -56,11 +53,17 @@ keys.forEach(key => {
 
     } else if (keyText == 'CapsLock') {
     } else if (keyText == 'Enter') {
-      
+      let value = '\n';
+      cursorPosition(value);
+
     } else if (keyText == 'Shift') {
     } else if (keyText == 'Ctrl') {
     } else if (keyText == 'Alt') {
     } else if (keyText == 'Win') {
+    } else if (keyText == 'arrowLeft') {
+    } else if (keyText == 'arrowRight') {
+    } else if (keyText == 'arrowUp') {
+    } else if (keyText == 'arrowDown') {
     } else {
       cursorPosition(keyText);
       textAreaContent += keyText;
