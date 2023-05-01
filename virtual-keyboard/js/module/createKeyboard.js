@@ -14,7 +14,7 @@ body.innerHTML = `
     </div>
     <div class="description">
       <p>Виртуальная клавиатура создана в ОС Windows</p>
-      <p>Для смены языка (en/ru) нажмите левые Alt+Shift</p>
+      <p>Для смены языка (en/ru) нажмите последовательно левые Alt и Shift</p>
     </div>
   </main>
 `;
