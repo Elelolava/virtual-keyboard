@@ -3,6 +3,7 @@ html {
   background-image: url('../img/sub.png');
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
+  cursor: default;
 }
 
 body {
