@@ -77,6 +77,19 @@ keys.forEach(key => {
       }
 
     } else if (keyText == '▼') {
+      let nextRowArray = Array.from([...textAreaContent].entries()).filter(i => i[1] == '\n').map(i => i[0]);
+      let newArr = [];
+      for (let i = 0; i < nextRowArray.length; i++) {
+        newArr.push(nextRowArray[i] - textarea.selectionStart);
+      }
+      let index = newArr.filter(item => item >= 0);
+      if (index !== -1 && index.length > 1) {
+        textarea.selectionStart = nextRowArray[newArr.indexOf(index[1])];
+      } else if (index.length == 1) {
+        textarea.selectionStart = nextRowArray[newArr.indexOf(index[0])] + 1;
+      } else {
+        textarea.selectionStart = nextRowArray[nextRowArray.length - 1] + 1;
+      }
 
     } else {
       cursorPosition(keyText);
