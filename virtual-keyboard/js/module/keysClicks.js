@@ -1,4 +1,4 @@
-const keys = document.querySelectorAll('.key');
+export const keys = document.querySelectorAll('.key');
 const textarea = document.querySelector('.textarea');
 
 const cursorPosition = (n) => {
