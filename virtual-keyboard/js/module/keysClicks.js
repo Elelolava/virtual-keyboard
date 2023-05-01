@@ -1,3 +1,4 @@
+import { html } from "./createKeyboard.js";
 const keys = document.querySelectorAll('.key');
 export const textarea = document.querySelector('.textarea');
 
@@ -29,7 +30,13 @@ keys.forEach(key => {
     e.preventDefault();
     textarea.focus();
     let textAreaContent = textarea.value;
-    let keyText = key.children[1].children[0].textContent;
+    let keyText;
+    let localLang = html.getAttribute('lang');
+    if (localLang == 'en') {
+      keyText = key.children[1].children[0].textContent;
+    } else if (localLang == 'ru') {
+      keyText = key.children[0].children[0].textContent;
+    }
 
     if (keyText == 'Backspace') {
       let cutString = textarea.selectionStart == textarea.selectionEnd ? 

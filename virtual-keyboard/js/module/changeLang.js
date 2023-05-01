@@ -1,4 +1,6 @@
 import { textarea } from "./keysClicks.js";
+import { html } from "./createKeyboard.js";
+
 const container = document.querySelector('.container');
 
 const changeLanguage = (func, ...keys) => {
@@ -40,12 +42,11 @@ const changeLanguage = (func, ...keys) => {
 };
 
 const rusEng = () => {
-  const html = document.querySelector('html');
-  const lang = html.getAttribute('lang');
   const engArray = document.querySelectorAll('.eng');
   const rusArray = document.querySelectorAll('.rus');
+  let storageLang = localStorage.getItem('lang');
 
-  if (lang == 'en') {
+  if (storageLang == 'en') {
     engArray.forEach(item => {
       item.classList.add('hidden');
     });
@@ -53,8 +54,10 @@ const rusEng = () => {
       item.classList.remove('hidden');
     });
     html.setAttribute('lang', 'ru');
+    localStorage.setItem('lang', 'ru');
   }
-  if (lang == 'ru') {
+
+  if (storageLang == 'ru') {
     rusArray.forEach(item => {
       item.classList.add('hidden');
     });
@@ -62,6 +65,7 @@ const rusEng = () => {
       item.classList.remove('hidden');
     });
     html.setAttribute('lang', 'en');
+    localStorage.setItem('lang', 'en');
   }
 };
 
