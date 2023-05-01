@@ -26,7 +26,7 @@ const createRow = (value) => {
   const innerRow = `
     <div class="key ${Object.keys(keys)[value]}">
     <span class="${Object.keys(keysObject[value][1])[1]} hidden">
-        <span class="caseDown hidden">${keysObject[value][1].rus.caseDown}</span>
+        <span class="caseDown">${keysObject[value][1].rus.caseDown}</span>
         <span class="caseUp hidden">${keysObject[value][1].rus.caseUp}</span>
         <span class="caps hidden">${keysObject[value][1].rus.caps}</span>
         <span class="shiftCaps hidden">${keysObject[value][1].rus.shiftCaps}</span>

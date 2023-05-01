@@ -1,5 +1,5 @@
-export const keys = document.querySelectorAll('.key');
-const textarea = document.querySelector('.textarea');
+const keys = document.querySelectorAll('.key');
+export const textarea = document.querySelector('.textarea');
 
 const cursorPosition = (n) => {
   textarea.setRangeText(n, textarea.selectionStart, textarea.selectionEnd, "end");
