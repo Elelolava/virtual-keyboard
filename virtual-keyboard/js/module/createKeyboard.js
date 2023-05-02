@@ -92,3 +92,7 @@ const createRows = () => {
   }
 };
 createRows();
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.textarea').focus();
+});
