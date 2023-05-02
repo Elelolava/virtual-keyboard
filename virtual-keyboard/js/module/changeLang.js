@@ -1,12 +1,11 @@
-import { textarea } from "./keysClicks.js";
-import { html } from "./createKeyboard.js";
-
+const html = document.querySelector('html');
+const textarea = document.querySelector('.textarea');
 const container = document.querySelector('.container');
 
 const changeLanguage = (func, ...keys) => {
-  let pressed = new Set();
-  let altString = 'Alt';
-  let shiftString = 'Shift';
+  const pressed = new Set();
+  const altString = 'Alt';
+  const shiftString = 'Shift';
 
   container.addEventListener('mousedown', (e) => {
     if (e.target.textContent.includes(altString)) {
@@ -14,7 +13,7 @@ const changeLanguage = (func, ...keys) => {
     } else if (e.target.textContent.includes(shiftString)) {
       pressed.add(shiftString);
     }
-    for (let key of keys) {
+    for (const key of keys) {
       if (!pressed.has(key)) {
         return;
       }
@@ -25,12 +24,12 @@ const changeLanguage = (func, ...keys) => {
   container.addEventListener('mouseup', () => pressed.delete(shiftString));
 
   textarea.addEventListener('keydown', (e) => {
-    if (e.code == 'AltLeft') {
+    if (e.code === 'AltLeft') {
       pressed.add(altString);
-    } else if (e.code == 'ShiftLeft') {
+    } else if (e.code === 'ShiftLeft') {
       pressed.add(shiftString);
     }
-    for (let key of keys) {
+    for (const key of keys) {
       if (!pressed.has(key)) {
         return;
       }
@@ -44,24 +43,24 @@ const changeLanguage = (func, ...keys) => {
 const rusEng = () => {
   const engArray = document.querySelectorAll('.eng');
   const rusArray = document.querySelectorAll('.rus');
-  let storageLang = localStorage.getItem('lang');
+  const storageLang = localStorage.getItem('lang');
 
-  if (storageLang == 'en') {
-    engArray.forEach(item => {
+  if (storageLang === 'en') {
+    engArray.forEach((item) => {
       item.classList.add('hidden');
     });
-    rusArray.forEach(item => {
+    rusArray.forEach((item) => {
       item.classList.remove('hidden');
     });
     html.setAttribute('lang', 'ru');
     localStorage.setItem('lang', 'ru');
   }
 
-  if (storageLang == 'ru') {
-    rusArray.forEach(item => {
+  if (storageLang === 'ru') {
+    rusArray.forEach((item) => {
       item.classList.add('hidden');
     });
-    engArray.forEach(item => {
+    engArray.forEach((item) => {
       item.classList.remove('hidden');
     });
     html.setAttribute('lang', 'en');
