@@ -1,4 +1,4 @@
-import { keys } from './keysArray.js';
+import keys from './keysArray.js';
 
 const body = document.querySelector('body');
 body.innerHTML = `
@@ -19,7 +19,7 @@ body.innerHTML = `
   </main>
 `;
 
-export const html = document.querySelector('html');
+const html = document.querySelector('html');
 const row = document.querySelectorAll('.row');
 const keysObject = Object.entries(keys);
 let localLang = localStorage.getItem('lang');
@@ -32,7 +32,7 @@ if (localLang) {
 
 const createRow = (value) => {
   let innerRow;
-  if (localLang == 'en') {
+  if (localLang === 'en') {
     innerRow = `
       <div class="key ${Object.keys(keys)[value]}">
       <span class="${Object.keys(keysObject[value][1])[1]} hidden">
@@ -49,7 +49,7 @@ const createRow = (value) => {
       </span>
       </div>
     `;
-  } else if (localLang == 'ru') {
+  } else if (localLang === 'ru') {
     innerRow = `
       <div class="key ${Object.keys(keys)[value]}">
       <span class="${Object.keys(keysObject[value][1])[1]}">
@@ -71,23 +71,23 @@ const createRow = (value) => {
 };
 
 const createRows = () => {
-  for (let i = 0; i < 14; i++) {
+  for (let i = 0; i < 14; i += 1) {
     row[0].insertAdjacentHTML('beforeend', createRow(i));
   }
-  
-  for (let i = 14; i < 29; i++) {
+
+  for (let i = 14; i < 29; i += 1) {
     row[1].insertAdjacentHTML('beforeend', createRow(i));
   }
-  
-  for (let i = 29; i < 42; i++) {
+
+  for (let i = 29; i < 42; i += 1) {
     row[2].insertAdjacentHTML('beforeend', createRow(i));
   }
-  
-  for (let i = 42; i < 55; i++) {
+
+  for (let i = 42; i < 55; i += 1) {
     row[3].insertAdjacentHTML('beforeend', createRow(i));
   }
-  
-  for (let i = 55; i < 64; i++) {
+
+  for (let i = 55; i < 64; i += 1) {
     row[4].insertAdjacentHTML('beforeend', createRow(i));
   }
 };
